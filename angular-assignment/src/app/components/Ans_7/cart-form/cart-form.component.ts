@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-form',
@@ -8,12 +8,18 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './cart-form.component.html',
   styleUrl: './cart-form.component.css'
 })
-export class CartFormComponent {
+export class CartFormComponent implements OnInit {
 
-  cart = new FormGroup({
-    name: new FormControl(""),
-    quantity: new FormControl(0)
-  });
+  constructor(private fb: FormBuilder) { }
+
+  cart!: FormGroup;
+
+  ngOnInit(): void {
+    this.cart = this.fb.group({
+      name: [""],
+      quantity: [0]
+    });
+  }
 
   onSubmit() {
     console.log(`Name: ${this.cart.value.name}, Quantity: ${this.cart.value.quantity}`)
