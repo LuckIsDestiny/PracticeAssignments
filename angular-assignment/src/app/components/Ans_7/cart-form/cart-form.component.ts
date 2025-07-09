@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-form',
@@ -16,8 +16,8 @@ export class CartFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.fb.group({
-      name: [""],
-      quantity: [0]
+      name: ["", Validators.required],
+      quantity: [0, Validators.required]
     });
   }
 
