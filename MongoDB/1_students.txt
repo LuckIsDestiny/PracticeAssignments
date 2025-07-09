@@ -1,0 +1,21 @@
+use universityDB;
+
+db.createCollection("students");
+
+db.students.insertMany([
+  { roll: 101, name: "Arun", dept: "CSE", attendance: 90 },
+  { roll: 102, name: "Meera", dept: "ECE", attendance: 87 },
+  { roll: 103, name: "Ron", dept: "CSE", attendance: 94 },
+  { roll: 104, name: "John", dept: "EEE", attendance: 81 },
+  { roll: 105, name: "Karen", dept: "ECE", attendance: 79 }
+])
+
+db.students.find();
+
+db.students.updateOne({ roll: 101}, { $set: { attendance: 92}});
+
+db.students.find();
+
+db.students.deleteOne({ roll: 102});
+
+db.students.find();

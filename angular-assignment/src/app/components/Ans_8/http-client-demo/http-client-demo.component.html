@@ -1,0 +1,14 @@
+<div style=" justify-self: center;">
+    <h1>HttpClient Demo</h1>
+
+    <button (click)="onClick()">Fetch</button>
+
+    <div *ngFor="let product of products">
+        <div style="border: solid black 3px; margin-top: 5px; width: 50%;">
+            <img [src]="product.image" alt="product.title" style="height: 150px; width: 150px;">
+            <h3>{{product.title}}</h3>
+            <p>{{product.price}}</p>
+            <p>{{product.category}}</p>
+        </div>
+    </div>
+</div>

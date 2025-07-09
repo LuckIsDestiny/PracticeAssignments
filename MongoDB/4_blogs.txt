@@ -1,0 +1,35 @@
+use blogApp;
+
+db.createCollection("blogs");
+
+db.blogs.insertMany([
+  {
+    title: "Learning MongoDB",
+    author: "Ravi",
+    content: "MongoDB is a NoSQL database...",
+    tags: ["database", "NoSQL", "MongoDB"],
+    createdAt: new Date()
+  },
+  {
+    title: "Learning Python",
+    author: "Ron",
+    content: "Python",
+    tags: ["Programming Language", "Python", "ML"],
+    createdAt: new Date()
+  },
+  {
+    title: "Learning Java",
+    author: "Bob",
+    content: "Java is a Object Oriented Programming Language...",
+    tags: ["OOP'S", "Programming Language", "Java"],
+    createdAt: new Date()
+  }
+]);
+
+db.blogs.updateOne({ author: "Ravi" }, { $set: { title: "Learning MongoDB from Scratch" } });
+
+db.blogs.find({}, { _id: 0, title: 1, author: 1, content: 1, tags: 1, createdAt: 1});
+
+db.blogs.deleteOne({ author: "Ravi" });
+
+db.blogs.find({}, { _id: 0, title: 1, author: 1, content: 1, tags: 1, createdAt: 1});

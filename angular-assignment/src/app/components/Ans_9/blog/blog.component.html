@@ -1,0 +1,9 @@
+<div>
+    <h1>Blogs</h1>
+    <button (click)="onClickPrevious()">Previous</button>
+    <button (click)="onClickNext()">Next</button>
+    <div *ngFor="let blog of blogs | slice:start:end">
+        <h3>{{blog}}</h3>
+        <hr>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <label for="userRole">Role: </label>
+    <input id="userRole" type="text" name="userRole" [(ngModel)]="userRole">
+    <div *ngIf="userRole==='guest';else loggedInBlock">
+        <p>You are a Guest</p>
+    </div>
+    <ng-template #loggedInBlock>
+        <div [ngSwitch]="userRole">
+            <div *ngSwitchCase="'user'">You are logged in as user</div>
+            <div *ngSwitchCase="'admin'">You are logged in as admin</div>
+            <div *ngSwitchDefault>Unknown Role</div>
+        </div>
+    </ng-template>
+</div>

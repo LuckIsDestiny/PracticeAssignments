@@ -1,0 +1,18 @@
+use companyDB;
+
+db.createCollection("employees");
+
+db.employees.insertMany([
+  { name: "Asha", dept: "Sales", salary: 50000 },
+  { name: "Rahul", dept: "Tech", salary: 70000 },
+  { name: "Bob", dept: "Marketing", salary: 50000 },
+  { name: "Ron", dept: "Tech", salary: 75000 },
+  { name: "Gohan", dept: "Sales", salary: 64000 },
+  { name: "Goku", dept: "Tech", salary: 58000 }
+]);
+
+db.employees.find({ dept: "Tech", salary: { $gt: 60000 } });
+
+db.employees.find({}, { _id: 0, name: 1, dept: 1 });
+
+db.employees.find({ dept: { $in: ["Sales", "Marketing"] } });

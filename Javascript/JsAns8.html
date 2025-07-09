@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke</title>
+</head>
+
+<body>
+    <button id="getJoke">Click Me!!</button>
+    <p id="jokeContainer"></p>
+    <script>
+        let getJokeButton = document.getElementById("getJoke");
+        getJokeButton.addEventListener("click", (e) => {
+            const joke = fetch("https://api.chucknorris.io/jokes/random")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error! status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((joke) => {
+                    console.log(joke.value)
+                    document.getElementById("jokeContainer").innerText = joke.value;
+                })
+                .catch((error) => console.error("Failed to load joke:", err.message)
+                );
+        })
+    </script>
+</body>
+
+</html>

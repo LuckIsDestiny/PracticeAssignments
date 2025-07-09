@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+#articles { max-width: 600px; margin: auto; padding: 20px; }
+.article { border-bottom: 1px solid #ddd; padding: 10px 0; }
+.article h2 { margin: 0 0 5px; }
+.article p { margin: 0; }
